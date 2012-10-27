@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gallery:</b>
+  <%= @image.gallery_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @image.name %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @image.image.url(:thumb).to_s %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
