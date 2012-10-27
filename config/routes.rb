@@ -1,7 +1,11 @@
 IamgeUpload::Application.routes.draw do
+
+
+  get 'tags/:tag', to: 'images#index', as: :tag
   resources :images
 
   resources :galleries
+  root :to => 'galleries#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

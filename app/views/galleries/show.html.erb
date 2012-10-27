@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
-
+<div class="tags">
+<% tag_cloud(Image.tag_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+<% end %>
+</div>
 <p>
   <b>Name:</b>
   <%= @gallery.name %></br>
   <% @gallery.images.each do |image| %>
   <b>image-name: </b><%= image.name %></br>
-  <b>image: </b><%= image_tag image.image_url(:thumb) if image.image %>
+  <b>image: </b> <%= image_tag image.image_url(:thumb) if image.image %><br>
+  <b>Tags</b> <%= raw image.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %>
    <div class="actions">
         <%= link_to "edit", edit_image_path(image) %> |
         <%= link_to "remove", image, :confirm => 'Are you sure?', :method => :delete %>

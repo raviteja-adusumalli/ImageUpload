@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+.tags {
+  width:150px;
+  height:250px;
+  line-height:1.6em;
+  float: right;
+
+  .css1 { font-size: 0.8em;}
+  .css2 { font-size: 1.1em;}
+  .css3 { font-size: 1.3em;}
+}

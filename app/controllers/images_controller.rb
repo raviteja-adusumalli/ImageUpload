@@ -2,7 +2,11 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
+    if params[:tag]
+      @images= Image.tagged_with(params[:tag])
+    else
     @images = Image.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
